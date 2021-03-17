@@ -37,9 +37,9 @@ public class CommandeServiceImpl implements CommandeService{
 
     @Override
     public Commande updateCommande(Commande commande) {
-        return this.commandeRepository.findByid(commande.getId())
+        return this.commandeRepository.findById(commande.getId())
                 .map(commande1 -> {
-                   this.commandeRepository.saveAndFlush(commande);
+                   return this.commandeRepository.saveAndFlush(commande);
                 }) 
                 .orElseThrow(()-> new RuntimeException("update wrng : commande not found")); 
     }

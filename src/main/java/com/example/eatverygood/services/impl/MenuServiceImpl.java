@@ -35,10 +35,10 @@ public class MenuServiceImpl implements MenuService{
 
     @Override
     public Menu updateMenu(Menu menu) {
-        return this.menuRepository.findByid(menu.getId())
-                .map(menu1 -> {
-                   this.menuRepository.saveAndFlush(menu);
-                }) 
+        return this.menuRepository.findById(menu.getId())
+                .map(m-> {
+                    return this.menuRepository.saveAndFlush(menu);
+                })
                 .orElseThrow(()-> new RuntimeException("update wrng : menu not found")); 
     }
     
