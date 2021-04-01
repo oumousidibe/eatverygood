@@ -12,9 +12,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
-@RequestMapping(value="/commande")
+@RestController
+@RequestMapping("commande")
 public class CommandeController {
     private CommandeService commandeService;
     public CommandeController(CommandeService commandeService){
@@ -36,7 +37,7 @@ public class CommandeController {
         return this.commandeService.updateCommande(commande);
     }
     
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id){
         this.commandeService.deleteCommande(id);
     }

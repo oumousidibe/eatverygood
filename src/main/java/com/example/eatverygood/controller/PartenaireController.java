@@ -12,11 +12,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
-@RequestMapping(value="/partenaire")
+@RestController
+@RequestMapping(value="partenaire")
 public class PartenaireController {
     private PartenaireService partenaireService;
+    
     public PartenaireController(PartenaireService partenaireService){
         this.partenaireService=partenaireService;
     }
@@ -36,7 +38,7 @@ public class PartenaireController {
         return this.partenaireService.updatePartenaire(partenaire);
     }
     
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id){
         this.partenaireService.deletePartenaire(id);
     }

@@ -30,14 +30,14 @@ public class PlatsServiceImpl implements PlatsService{
    
     @Override
     public Plats addPlats(Plats plats) {
-        return this.platsRepository.save(this.addPlats(plats));
+        return this.platsRepository.save(plats);
     }
 
     @Override
     public Plats updatePlats(Plats plats) {
-        return this.platsRepository.findByid(plats.getId())
+        return this.platsRepository.findById(plats.getId())
                 .map(plats1 -> {
-                   this.platsRepository.saveAndFlush(plats);
+                   return this.platsRepository.saveAndFlush(plats);
                 }) 
                 .orElseThrow(()-> new RuntimeException("update wrng : plats not found")); 
     }

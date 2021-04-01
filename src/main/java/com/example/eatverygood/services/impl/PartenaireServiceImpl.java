@@ -35,14 +35,14 @@ public class PartenaireServiceImpl implements PartenaireService{
    
     @Override
     public Partenaire addPartenaire(Partenaire partenaire) {
-        return this.partenaireRepository.save(this.addPartenaire(partenaire));
+        return this.partenaireRepository.save(partenaire);
     }
 
     @Override
     public Partenaire updatePartenaire(Partenaire partenaire) {
-        return this.partenaireRepository.findByid(partenaire.getId())
+        return this.partenaireRepository.findById(partenaire.getId())
                 .map(partenaire1 -> {
-                   this.partenaireRepository.saveAndFlush(partenaire);
+                   return this.partenaireRepository.saveAndFlush(partenaire);
                 }) 
                 .orElseThrow(()-> new RuntimeException("update wrng : partenaire not found")); 
     }

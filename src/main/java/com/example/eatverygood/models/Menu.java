@@ -26,7 +26,7 @@ public class Menu implements Serializable{
     @Id
     @GeneratedValue ( strategy = GenerationType.IDENTITY )
     private Long id;
-    private String composition;
+    private String name;
     private Date dateMenu;
      @OneToMany
     private List <Plats> plats;

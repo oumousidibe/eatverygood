@@ -32,7 +32,7 @@ public class CommandeServiceImpl implements CommandeService{
    
     @Override
     public Commande addCommande(Commande commande) {
-        return this.commandeRepository.save(this.addCommande(commande));
+        return this.commandeRepository.save(commande);
     }
 
     @Override

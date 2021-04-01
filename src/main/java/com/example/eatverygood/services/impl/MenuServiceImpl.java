@@ -30,7 +30,7 @@ public class MenuServiceImpl implements MenuService{
    
     @Override
     public Menu addMenu(Menu menu) {
-        return this.menuRepository.save(this.addMenu(menu));
+        return this.menuRepository.save(menu);
     }
 
     @Override
